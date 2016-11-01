@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.github.tbouron.shakedetector.library.ShakeDetector;
 
 
 public class DetailActivity extends AppCompatActivity {
 
     // Volleyhandler for handling our Requests
     VolleyHandler volleyHandler;
+    ShakeDetector shakeDetector;
 
     // Basic string elements
     String url = "http://192.168.1.179/api/";
@@ -22,6 +26,13 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        ShakeDetector.create(this, new ShakeDetector.OnShakeListener() {
+            @Override
+            public void OnShake() {
+                Toast.makeText(getApplicationContext(), "Device Shaken!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Instantiate a VolleyHandler
         volleyHandler = new VolleyHandler(getApplicationContext());
@@ -47,7 +58,7 @@ public class DetailActivity extends AppCompatActivity {
         final int actualHue = hue.hue;
 
         // Add togglebutton to this class
-        ToggleButton tBtn = (ToggleButton) findViewById(R.id.hueDetailToggle);
+        ToggleButton tBtn = (ToggleButton) findViewById(R.id.huePowerSwitch);
 
         // Set checked state to the On state from the Hue
         tBtn.setChecked(on);
