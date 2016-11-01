@@ -17,9 +17,12 @@ public class DetailActivity extends AppCompatActivity {
     VolleyHandler volleyHandler;
     ShakeDetector shakeDetector;
 
+    String url = "http://145.48.205.33/api/";
+    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
+
     // Basic string elements
-    String url = "http://192.168.1.179/api/";
-    String username = "80b8a9620291a47fec92fa34484f5b";
+//    String url = "http://192.168.1.179/api/";
+//    String username = "80b8a9620291a47fec92fa34484f5b";
     String putUrl = url + username + "/lights/";
 
     @Override
@@ -56,7 +59,7 @@ public class DetailActivity extends AppCompatActivity {
 
         // Get the Hue from the hue
         final int actualHue = hue.hue;
-        
+
         // Add ToggleButton to this class
         // Allows the user to turn a hue-light on/off
         ToggleButton huePowerBtn = (ToggleButton) findViewById(R.id.huePowerSwitch);
