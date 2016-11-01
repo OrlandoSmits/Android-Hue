@@ -27,7 +27,7 @@ public class Hue implements Serializable {
 
     public String effect;
 
-
+    
     private VolleyHandler volleyHandler;
 
     public Hue(Context context, String id, String name, boolean on, int brightness, int hue, int saturation,
