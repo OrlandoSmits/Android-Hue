@@ -1,4 +1,4 @@
-package com.android.orlandosmits.contactapp;
+package com.android.orlandosmits.hue;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,13 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
-import com.android.orlandosmits.contactapp.Hue;
-import com.android.volley.Request;
+import com.android.orlandosmits.contactapp.R;
 
 import java.util.ArrayList;
 

@@ -1,13 +1,13 @@
-package com.android.orlandosmits.contactapp;
+package com.android.orlandosmits.hue;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.android.orlandosmits.contactapp.R;
 import com.github.tbouron.shakedetector.library.ShakeDetector;
 
 
@@ -17,12 +17,12 @@ public class DetailActivity extends AppCompatActivity {
     VolleyHandler volleyHandler;
     ShakeDetector shakeDetector;
 
-    String url = "http://145.48.205.33/api/";
-    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
+//    String url = "http://145.48.205.33/api/";
+//    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
 
     // Basic string elements
-//    String url = "http://192.168.1.179/api/";
-//    String username = "80b8a9620291a47fec92fa34484f5b";
+    String url = "http://192.168.1.179/api/";
+    String username = "80b8a9620291a47fec92fa34484f5b";
     String putUrl = url + username + "/lights/";
 
     @Override

@@ -1,12 +1,8 @@
-package com.android.orlandosmits.contactapp;
+package com.android.orlandosmits.hue;
 
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import com.android.volley.Request;
-
-import java.io.Serializable;
 
 /**
  * Created by Orlando Smits on 29-10-2016.

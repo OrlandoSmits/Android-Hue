@@ -1,4 +1,4 @@
-package com.android.orlandosmits.contactapp;
+package com.android.orlandosmits.hue;
 
 import android.content.Context;
 import android.util.Log;

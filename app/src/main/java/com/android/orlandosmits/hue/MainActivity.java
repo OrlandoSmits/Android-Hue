@@ -1,9 +1,6 @@
-package com.android.orlandosmits.contactapp;
+package com.android.orlandosmits.hue;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,10 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Switch;
-import android.widget.Toast;
 
 
+import com.android.orlandosmits.contactapp.R;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -37,12 +33,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     HueAdapter mHueAdapter;
     ArrayList<Hue> hueArrayList = new ArrayList<>();
 
-    String url = "http://145.48.205.33/api/";
-    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
+//    String url = "http://145.48.205.33/api/";
+//    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
 
     // Basic string elements
-//    String url = "http://192.168.1.179/api/";
-//    String username = "80b8a9620291a47fec92fa34484f5b";
+    String url = "http://192.168.1.179/api/";
+    String username = "80b8a9620291a47fec92fa34484f5b";
     String putUrl = url + username + "/lights/";
 
     @Override
@@ -79,23 +75,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_deleteDB:
-
-
-                mHueAdapter.notifyDataSetChanged();
-
-                return true;
-
-            case R.id.action_addPerson:
-                GETRequest();
-                mHueAdapter.notifyDataSetChanged();
-                return true;
 
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
