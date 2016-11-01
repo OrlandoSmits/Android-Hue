@@ -104,4 +104,16 @@ public class VolleyHandler {
         this.doRequest(url, "{\"bri\":" + brightness + "}", Request.Method.PUT);
         return true;
     }
+
+    // Sets the hue of an individual Hue
+    public boolean setSaturation(String url, int saturation) {
+        this.doRequest(url, "{\"sat\":" + saturation + "}", Request.Method.PUT);
+        return true;
+    }
+
+    // Sets the hue of an individual Hue
+    public boolean setHue(String url, int hue) {
+        this.doRequest(url, "{\"hue\":" + hue + "}", Request.Method.PUT);
+        return true;
+    }
 }

@@ -17,7 +17,9 @@ import com.squareup.picasso.Picasso;
 public class DetailActivity extends AppCompatActivity {
 
     VolleyHandler volleyHandler;
-
+    String url = "http://192.168.1.179/api/";
+    String username = "80b8a9620291a47fec92fa34484f5b";
+    String putUrl = url + username + "/lights/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +31,10 @@ public class DetailActivity extends AppCompatActivity {
         final Hue hue = (Hue) extras.get("Hue");
         final String id = hue.id;
         Boolean on = hue.on;
-        final Integer bri = hue.brightness;
-        Log.i("brightness", bri.toString());
+        final int bri = hue.brightness;
+        final int sat = hue.saturation;
+        final int actualHue = hue.hue;
+        Log.i("brightness", String.valueOf(bri));
 
 
         ToggleButton tBtn = (ToggleButton) findViewById(R.id.hueDetailToggle);
@@ -39,18 +43,18 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    volleyHandler.turnOn("http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights/" + id + "/state/");
+                    volleyHandler.turnOn(putUrl + id + "/state/");
                 } else {
-                    volleyHandler.turnOff("http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights/" + id + "/state/");
+                    volleyHandler.turnOff(putUrl + id + "/state/");
 
                 }
             }
         });
 
-        SeekBar briSeekbar = (SeekBar) findViewById(R.id.hueBriSeekbar);
-        briSeekbar.setProgress(bri);
+        SeekBar briSeekBar = (SeekBar) findViewById(R.id.brightnessSeekBar);
+        briSeekBar.setProgress(bri);
 
-        briSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        briSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
@@ -68,13 +72,48 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        Button button = (Button) findViewById(R.id.hueDetailOff);
-        button.setOnClickListener(new View.OnClickListener() {
+        SeekBar satSeekBar = (SeekBar) findViewById(R.id.saturationSeekBar);
+        satSeekBar.setProgress(sat);
+
+        satSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onClick(View v) {
-                volleyHandler.turnOff("http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights/" + id + "/state/");
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int progress = seekBar.getProgress();
+                volleyHandler.setSaturation("http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights/" + id + "/state/", progress );
             }
         });
+
+        SeekBar hueSeekBar = (SeekBar) findViewById(R.id.hueSeekBar);
+        hueSeekBar.setProgress(actualHue);
+
+        hueSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                int progress = seekBar.getProgress();
+                volleyHandler.setHue("http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights/" + id + "/state/", progress);
+            }
+        });
+
 
 
     }

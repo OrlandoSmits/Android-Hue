@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Contact App</string>
+    <string name="app_name">Hue App</string>
+    <string name="brightnessLabel">Brightness</string>
+    <string name="saturationLabel">Saturation</string>
+    <string name="hueLabel">Hue</string>
 </resources>

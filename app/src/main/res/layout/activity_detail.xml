@@ -1,28 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="25dp"
     android:orientation="horizontal">
 
     <ToggleButton
-        android:text="ToggleButton"
+        android:id="@+id/hueDetailToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:id="@+id/hueDetailToggle" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"/>
 
-    <Button
+    <TextView
+        android:id="@+id/brightnessLabel"
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:id="@+id/hueDetailOff"/>
+        android:layout_height="25dp"
+        android:layout_below="@id/hueDetailToggle"
+        android:text="@string/brightnessLabel"/>
 
     <SeekBar
+        android:id="@+id/brightnessSeekBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="44dp"
-        android:id="@+id/hueBriSeekbar"
+        android:layout_height="50dp"
+        android:layout_below="@id/brightnessLabel"
         android:max="254" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/saturationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@id/brightnessSeekBar"
+        android:text="@string/saturationLabel"/>
+
+
+    <SeekBar
+        android:id="@+id/saturationSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/saturationLabel"
+        android:max="254" />
+
+    <TextView
+        android:id="@+id/hueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@id/saturationSeekBar"
+        android:text="@string/hueLabel"/>
+
+
+    <SeekBar
+        android:id="@+id/hueSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/hueLabel"
+        android:max="65535" />
+
+</RelativeLayout>
