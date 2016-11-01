@@ -132,10 +132,10 @@ public class VolleyHandler {
 
     public boolean setAlert(String url, boolean b) {
 
-        String alert = "select";
+        String alert = "lselect";
 
         if (!b) {
-            alert = "lselect";
+            alert = "select";
         }
 
         this.doRequest(url, "{\"alert\":\"" + alert + "\"}", Request.Method.PUT);
@@ -144,11 +144,11 @@ public class VolleyHandler {
 
     public boolean setDisco(String url, boolean b) {
 
-        String alert = "select";
+        String alert = "lselect";
         String effect = "colorloop";
 
         if (!b) {
-            alert = "lselect";
+            alert = "select";
             effect = "none";
         }
 
