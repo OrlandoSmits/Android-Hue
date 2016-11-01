@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     HueAdapter mHueAdapter;
     ArrayList<Hue> hueArrayList = new ArrayList<>();
 
+    String url = "http://145.48.205.33/api/";
+    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
+
+    // Basic string elements
+//    String url = "http://192.168.1.179/api/";
+//    String username = "80b8a9620291a47fec92fa34484f5b";
+    String putUrl = url + username + "/lights/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void GETRequest() {
 //        String url = "http://192.168.1.249:80/api/newdeveloper/lights";
-        String url = "http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights";
+        String url = putUrl;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>(){

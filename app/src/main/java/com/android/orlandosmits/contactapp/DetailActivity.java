@@ -30,13 +30,6 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ShakeDetector.create(this, new ShakeDetector.OnShakeListener() {
-            @Override
-            public void OnShake() {
-                Toast.makeText(getApplicationContext(), "Device Shaken!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         // Instantiate a VolleyHandler
         volleyHandler = new VolleyHandler(getApplicationContext());
 
@@ -59,6 +52,14 @@ public class DetailActivity extends AppCompatActivity {
 
         // Get the Hue from the hue
         final int actualHue = hue.hue;
+
+        ShakeDetector.create(this, new ShakeDetector.OnShakeListener() {
+            @Override
+            public void OnShake() {
+                Toast.makeText(getApplicationContext(), "Whoohoo Dance Party!", Toast.LENGTH_SHORT).show();
+                volleyHandler.setDisco(putUrl + id + "/state/",true);
+            }
+        });
 
         // Add ToggleButton to this class
         // Allows the user to turn a hue-light on/off
