@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -86,5 +87,10 @@ public class VolleyHandler {
 
         return requestResponse;
 
+    }
+
+    public boolean turnOff(String url) {
+        this.doRequest(url, "{\"on\":false}", Request.Method.PUT);
+        return true;
     }
 }

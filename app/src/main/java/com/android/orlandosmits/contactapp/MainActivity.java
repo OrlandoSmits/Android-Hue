@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             JSONObject jsonObject = new JSONObject(response);
 
             for(Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
-                Hue hue = new Hue();
+                Hue hue = new Hue(getApplicationContext());
                 hue.id = iter.next();
                 hue.name = jsonObject.getJSONObject(hue.id).getString("name");
                 hue.on = jsonObject.getJSONObject(hue.id).getJSONObject("state").getBoolean("on");

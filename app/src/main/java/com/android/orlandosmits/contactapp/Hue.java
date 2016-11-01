@@ -1,6 +1,8 @@
 package com.android.orlandosmits.contactapp;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.android.volley.Request;
 
@@ -10,7 +12,7 @@ import java.io.Serializable;
  * Created by Orlando Smits on 29-10-2016.
  */
 
-public class Hue implements Serializable {
+public class Hue implements Parcelable {
 
     // Tag for logging-purposes
     private String TAG = this.getClass().getName();
@@ -28,22 +30,45 @@ public class Hue implements Serializable {
     public String effect;
 
 
+
     private VolleyHandler volleyHandler;
 
-//    public Hue(Context context, String id, String name, boolean on, int brightness, int hue, int saturation,
-//                    String effect) {
-//
-//        volleyHandler = new VolleyHandler(context);
-//
-//        this.id = id;
-//        this.name = name;
-//        this.on = on;
-//        this.brightness = brightness;
-//        this.hue = hue;
-//        this.saturation = saturation;
-//        this.effect = effect;
-//
-//    }
+    public Hue(Context context) {
+
+        volleyHandler = new VolleyHandler(context);
+
+        this.id = id;
+        this.name = name;
+        this.on = on;
+        this.brightness = brightness;
+        this.hue = hue;
+        this.saturation = saturation;
+        this.effect = effect;
+
+    }
+
+    protected Hue(Parcel in) {
+        TAG = in.readString();
+        id = in.readString();
+        name = in.readString();
+        on = in.readByte() != 0;
+        brightness = in.readInt();
+        hue = in.readInt();
+        saturation = in.readInt();
+        effect = in.readString();
+    }
+
+    public static final Creator<Hue> CREATOR = new Creator<Hue>() {
+        @Override
+        public Hue createFromParcel(Parcel in) {
+            return new Hue(in);
+        }
+
+        @Override
+        public Hue[] newArray(int size) {
+            return new Hue[size];
+        }
+    };
 
     // Returns the id of an individual Hue
     public String getId() {
@@ -67,10 +92,10 @@ public class Hue implements Serializable {
     }
 
     // Turns an individual Hue off
-    public boolean turnOff(String url) {
-        volleyHandler.doRequest(url, "{\"on\":false}", Request.Method.PUT);
-        return true;
-    }
+//    public boolean turnOff(String url) {
+//        volleyHandler.doRequest(url, "{\"on\":false}", Request.Method.PUT);
+//        return true;
+//    }
 
     // Returns the brightness-state of an individual Hue
     public int getBrightness() {
@@ -116,4 +141,20 @@ public class Hue implements Serializable {
         return true;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(TAG);
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeByte((byte) (on ? 1 : 0));
+        dest.writeInt(brightness);
+        dest.writeInt(hue);
+        dest.writeInt(saturation);
+        dest.writeString(effect);
+    }
 }

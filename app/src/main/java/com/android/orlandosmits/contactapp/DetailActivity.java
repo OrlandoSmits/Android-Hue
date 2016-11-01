@@ -15,28 +15,36 @@ import com.squareup.picasso.Picasso;
 
 public class DetailActivity extends AppCompatActivity {
 
+    VolleyHandler volleyHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-       Bundle extras = getIntent().getExtras();
-        Hue hue = (Hue) extras.get("Hue");
+        volleyHandler = new VolleyHandler(getApplicationContext());
+
+        Bundle extras = getIntent().getExtras();
+        final Hue hue = (Hue) extras.get("Hue");
+        final String id = hue.id;
         Boolean on = hue.on;
         Integer bri = hue.brightness;
         Log.i("brightness", bri.toString());
 
-
-        String lastname = extras.getString("UserLastName");
-        String email = extras.getString("UserEmail");
-        String gender = extras.getString("UserGender");
-        String image = extras.getString("UserImage");
 
         ToggleButton tBtn = (ToggleButton) findViewById(R.id.hueDetailToggle);
         tBtn.setChecked(on);
 
         SeekBar briSeekbar = (SeekBar) findViewById(R.id.hueBriSeekbar);
         briSeekbar.setProgress(bri);
+
+        Button button = (Button) findViewById(R.id.hueDetailOff);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                volleyHandler.turnOff("http://192.168.1.179/api/80b8a9620291a47fec92fa34484f5b/lights/" + id + "/state/");
+            }
+        });
 
 
     }
