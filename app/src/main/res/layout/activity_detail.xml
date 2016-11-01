@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="25dp"
     android:orientation="horizontal">
 
+    <!-- ToggleButtons for turning hue-lights, colorloops & alerts on/off -->
     <ToggleButton
-        android:id="@+id/hueDetailToggle"
+        android:id="@+id/huePowerSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"/>
+        android:layout_margin="10dp"/>
+
+    <ToggleButton
+        android:id="@+id/hueColorLoopSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/huePowerSwitch"
+        android:layout_margin="10dp" />
+
+    <ToggleButton
+        android:id="@+id/hueAlertSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/hueColorLoopSwitch"
+        android:layout_margin="10dp" />
 
     <TextView
         android:id="@+id/brightnessLabel"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_below="@id/hueDetailToggle"
+        android:layout_below="@id/huePowerSwitch"
         android:text="@string/brightnessLabel"/>
 
     <SeekBar
@@ -50,7 +62,6 @@
         android:layout_height="25dp"
         android:layout_below="@id/saturationSeekBar"
         android:text="@string/hueLabel"/>
-
 
     <SeekBar
         android:id="@+id/hueSeekBar"

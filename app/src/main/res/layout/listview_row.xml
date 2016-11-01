@@ -3,30 +3,28 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@android:color/holo_blue_light">
+    android:background="@android:color/white">
 
-
-    <RelativeLayout
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/hueName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="12.5dp">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="25dp"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hue Lamp"
-            android:id="@+id/hueName"
-            android:textSize="18sp"
-            />
+        android:textSize="24sp"
+        android:textColor="@android:color/black"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/hueId"
-            android:layout_below="@+id/hueName"
-            android:textSize="18sp"/>
-
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/hueId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hueName"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:textSize="22sp"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>
