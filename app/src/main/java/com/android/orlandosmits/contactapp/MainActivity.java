@@ -34,8 +34,6 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
     ListView mHueListView;
     HueAdapter mHueAdapter;
-    DatabaseHandler dbHandler;
-    ArrayList<User> mUserList = new ArrayList<>();
     ArrayList<Hue> hueArrayList = new ArrayList<>();
 
     @Override
@@ -45,49 +43,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-//        dbHandler = new DatabaseHandler(this);
-//        mUserList = dbHandler.getUsers();
 
-//        if(mUserList.size() <= 0) {
-//            for (int i = 0; i < 5; i++){
-//                GETRequest();
-//            }
-//        }
 
         GETRequest();
-
-        Log.i("userlist", mUserList.toString());
+//
         mHueListView = (ListView) findViewById(R.id.hueListView);
 
         //Koppelen van de list
         mHueAdapter = new HueAdapter(this,
                 getLayoutInflater(),
                 hueArrayList);
-        Log.i("log",mUserList.toString());
+        Log.i("log",hueArrayList.toString());
         mHueListView.setAdapter(mHueAdapter);
         mHueListView.setOnItemClickListener(this);
 
         mHueAdapter.notifyDataSetChanged();
 
-//        mUserListView.setOnItemClickListener(this);
-//        mUserListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                User user = (User) mUserList.get(position);
-//                CharSequence text = user.getmFirstName() + " verwijderd";
-//                int duration = Toast.LENGTH_LONG;
-//                Context context = getApplicationContext();
-//
-//                Toast toast = Toast.makeText(context, text, duration);
-//                toast.show();
-//
-//                mUserList.remove(position);
-//                dbHandler.removeUser(user);
-//                mUserAdapter.notifyDataSetChanged();
-//                return false;
-//
-//            }
-//        });
 
     }
 
@@ -101,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_deleteDB:
-                dbHandler.removeDb();
-                mUserList.clear();
+
+
                 mHueAdapter.notifyDataSetChanged();
 
                 return true;

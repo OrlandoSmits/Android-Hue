@@ -19,14 +19,15 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
        Bundle extras = getIntent().getExtras();
-        String username = extras.getString("UserName");
+        Hue hue = (Hue) extras.get("Hue");
+
         String lastname = extras.getString("UserLastName");
         String email = extras.getString("UserEmail");
         String gender = extras.getString("UserGender");
         String image = extras.getString("UserImage");
 
         TextView tvName = (TextView) findViewById(R.id.tvPersonName);
-        tvName.setText(username + " " + lastname);
+        tvName.setText(hue.id);
 
         TextView tvEmail = (TextView) findViewById(R.id.tvPersonEmail);
         tvEmail.setText(email);
