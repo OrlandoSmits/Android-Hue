@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="@android:color/holo_blue_light">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,9 +23,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="john.doe@gmail.com"
-            android:id="@+id/hueState"
+            android:id="@+id/hueId"
+            android:layout_below="@+id/hueName"
             android:textSize="18sp"/>
-    </LinearLayout>
 
-</LinearLayout>
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp"
+            android:id="@+id/hueSwitch" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
