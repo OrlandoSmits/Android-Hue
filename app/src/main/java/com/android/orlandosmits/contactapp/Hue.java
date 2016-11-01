@@ -86,10 +86,10 @@ public class Hue implements Parcelable {
     }
 
     // Turns an individual Hue off
-    public boolean turnOn(String url) {
-        volleyHandler.doRequest(url, "{\"on\":true}", Request.Method.PUT);
-        return true;
-    }
+//    public boolean turnOn(String url) {
+//        volleyHandler.doRequest(url, "{\"on\":true}", Request.Method.PUT);
+//        return true;
+//    }
 
     // Turns an individual Hue off
 //    public boolean turnOff(String url) {
@@ -102,11 +102,11 @@ public class Hue implements Parcelable {
         return brightness;
     }
 
-    // Sets the brightness of an individual Hue
-    public boolean setBrightness(String url, int brightness) {
-        volleyHandler.doRequest(url, "{\"bri\":" + brightness + "}", Request.Method.PUT);
-        return true;
-    }
+//    // Sets the brightness of an individual Hue
+//    public boolean setBrightness(String url, int brightness) {
+//        volleyHandler.doRequest(url, "{\"bri\":" + brightness + "}", Request.Method.PUT);
+//        return true;
+//    }
 
     // Returns the hue-state of an individual Hue
     public int getHue() {

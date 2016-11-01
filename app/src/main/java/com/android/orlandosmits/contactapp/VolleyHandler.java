@@ -89,8 +89,19 @@ public class VolleyHandler {
 
     }
 
+    public boolean turnOn(String url) {
+        this.doRequest(url, "{\"on\":true}", Request.Method.PUT);
+        return true;
+    }
+
     public boolean turnOff(String url) {
         this.doRequest(url, "{\"on\":false}", Request.Method.PUT);
+        return true;
+    }
+
+    // Sets the brightness of an individual Hue
+    public boolean setBrightness(String url, int brightness) {
+        this.doRequest(url, "{\"bri\":" + brightness + "}", Request.Method.PUT);
         return true;
     }
 }
