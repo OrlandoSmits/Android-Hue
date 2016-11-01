@@ -27,6 +27,13 @@
         android:layout_toEndOf="@id/hueColorLoopSwitch"
         android:layout_margin="10dp" />
 
+    <ToggleButton
+        android:id="@+id/hueDiscoSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/hueAlertSwitch"
+        android:layout_margin="10dp" />
+
     <TextView
         android:id="@+id/brightnessLabel"
         android:layout_width="wrap_content"

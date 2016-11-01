@@ -118,13 +118,42 @@ public class VolleyHandler {
     }
 
     // Sets the effect of an individual Hue
-    public boolean setEffect(String url, String effect) {
-        this.doRequest(url, "{\"effect\":" + effect + "}", Request.Method.PUT);
+    public boolean setEffect(String url, boolean b) {
+
+        String effect = "colorloop";
+
+        if (!b) {
+            effect = "none";
+        }
+
+        this.doRequest(url, "{\"effect\":\"" + effect + "\"}", Request.Method.PUT);
         return true;
     }
 
-    public boolean setAlert(String url, String alert) {
-        this.doRequest(url, "{\"alert\":" + alert + "}", Request.Method.PUT);
+    public boolean setAlert(String url, boolean b) {
+
+        String alert = "select";
+
+        if (!b) {
+            alert = "lselect";
+        }
+
+        this.doRequest(url, "{\"alert\":\"" + alert + "\"}", Request.Method.PUT);
+        return true;
+    }
+
+    public boolean setDisco(String url, boolean b) {
+
+        String alert = "select";
+        String effect = "colorloop";
+
+        if (!b) {
+            alert = "lselect";
+            effect = "none";
+        }
+
+        this.doRequest(url, "{\"effect\":\"" + effect + "\"}", Request.Method.PUT);
+        this.doRequest(url, "{\"alert\":\"" + alert + "\"}", Request.Method.PUT);
         return true;
     }
 }

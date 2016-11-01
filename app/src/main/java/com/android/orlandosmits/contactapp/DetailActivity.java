@@ -46,14 +46,15 @@ public class DetailActivity extends AppCompatActivity {
         // Get the Hue from the hue
         final int actualHue = hue.hue;
 
-        // Add togglebutton to this class
-        ToggleButton tBtn = (ToggleButton) findViewById(R.id.hueDetailToggle);
+        // Add ToggleButton to this class
+        // Allows the user to turn a hue-light on/off
+        ToggleButton huePowerBtn = (ToggleButton) findViewById(R.id.huePowerSwitch);
 
         // Set checked state to the On state from the Hue
-        tBtn.setChecked(on);
+        huePowerBtn.setChecked(on);
 
         // Give the user the option to turn the Hue on or off
-        tBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        huePowerBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
@@ -61,6 +62,36 @@ public class DetailActivity extends AppCompatActivity {
                 } else {
                     volleyHandler.turnOff(putUrl + id + "/state/");
 
+                }
+            }
+        });
+
+        // Add ToggleButton to this class
+        // Allows the user to turn an effect of a hue-light on/off
+        ToggleButton hueEffectBtn = (ToggleButton) findViewById(R.id.hueColorLoopSwitch);
+
+        hueEffectBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    volleyHandler.setEffect(putUrl + id + "/state/", true);
+                } else {
+                    volleyHandler.setEffect(putUrl + id + "/state/", false);
+                }
+            }
+        });
+
+        // Add ToggleButton to this class
+        // Allows the user to turn an effect of a hue-light on/off
+        ToggleButton hueAlertBtn = (ToggleButton) findViewById(R.id.hueAlertSwitch);
+
+        hueAlertBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    volleyHandler.setAlert(putUrl + id + "/state/", true);
+                } else {
+                    volleyHandler.setAlert(putUrl + id + "/state/", false);
                 }
             }
         });
