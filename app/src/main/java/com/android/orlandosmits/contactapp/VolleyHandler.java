@@ -116,4 +116,15 @@ public class VolleyHandler {
         this.doRequest(url, "{\"hue\":" + hue + "}", Request.Method.PUT);
         return true;
     }
+
+    // Sets the effect of an individual Hue
+    public boolean setEffect(String url, String effect) {
+        this.doRequest(url, "{\"effect\":" + effect + "}", Request.Method.PUT);
+        return true;
+    }
+
+    public boolean setAlert(String url, String alert) {
+        this.doRequest(url, "{\"alert\":" + alert + "}", Request.Method.PUT);
+        return true;
+    }
 }

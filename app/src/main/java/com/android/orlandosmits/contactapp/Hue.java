@@ -85,38 +85,14 @@ public class Hue implements Parcelable {
         return on;
     }
 
-    // Turns an individual Hue off
-//    public boolean turnOn(String url) {
-//        volleyHandler.doRequest(url, "{\"on\":true}", Request.Method.PUT);
-//        return true;
-//    }
-
-    // Turns an individual Hue off
-//    public boolean turnOff(String url) {
-//        volleyHandler.doRequest(url, "{\"on\":false}", Request.Method.PUT);
-//        return true;
-//    }
-
     // Returns the brightness-state of an individual Hue
     public int getBrightness() {
         return brightness;
     }
 
-//    // Sets the brightness of an individual Hue
-//    public boolean setBrightness(String url, int brightness) {
-//        volleyHandler.doRequest(url, "{\"bri\":" + brightness + "}", Request.Method.PUT);
-//        return true;
-//    }
-
     // Returns the hue-state of an individual Hue
     public int getHue() {
         return hue;
-    }
-
-    // Sets the hue of an individual Hue
-    public boolean setHue(String url, int hue) {
-        volleyHandler.doRequest(url, "{\"hue\":" + hue + "}", Request.Method.PUT);
-        return true;
     }
 
     // Returns the saturation-state of an individual Hue
@@ -124,21 +100,9 @@ public class Hue implements Parcelable {
         return hue;
     }
 
-    // Sets the hue of an individual Hue
-    public boolean setSaturation(String url, int saturation) {
-        volleyHandler.doRequest(url, "{\"sat\":" + saturation + "}", Request.Method.PUT);
-        return true;
-    }
-
     // Returns the effect-state of an individual Hue
     public String getEffect() {
         return effect;
-    }
-
-    // Sets the effect of an individual Hue
-    public boolean setEffect(String url, String effect) {
-        volleyHandler.doRequest(url, "{\"effect\":" + effect + "}", Request.Method.PUT);
-        return true;
     }
 
     @Override
