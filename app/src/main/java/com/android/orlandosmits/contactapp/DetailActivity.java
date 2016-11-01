@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,20 +22,22 @@ public class DetailActivity extends AppCompatActivity {
 
        Bundle extras = getIntent().getExtras();
         Hue hue = (Hue) extras.get("Hue");
+        Boolean on = hue.on;
+        Integer bri = hue.brightness;
+        Log.i("brightness", bri.toString());
+
 
         String lastname = extras.getString("UserLastName");
         String email = extras.getString("UserEmail");
         String gender = extras.getString("UserGender");
         String image = extras.getString("UserImage");
 
-        TextView tvName = (TextView) findViewById(R.id.tvPersonName);
-        tvName.setText(hue.id);
+        ToggleButton tBtn = (ToggleButton) findViewById(R.id.hueDetailToggle);
+        tBtn.setChecked(on);
 
-        TextView tvEmail = (TextView) findViewById(R.id.tvPersonEmail);
-        tvEmail.setText(email);
+        SeekBar briSeekbar = (SeekBar) findViewById(R.id.hueBriSeekbar);
+        briSeekbar.setProgress(bri);
 
-        ImageView thumbnail = (ImageView) findViewById(R.id.profilepicture);
-        Picasso.with(getApplicationContext()).load(image).into(thumbnail);
 
     }
 }

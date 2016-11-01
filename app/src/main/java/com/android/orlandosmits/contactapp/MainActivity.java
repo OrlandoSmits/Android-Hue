@@ -43,9 +43,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-
-
-        GETRequest();
+       GETRequest();
 //
         mHueListView = (ListView) findViewById(R.id.hueListView);
 
@@ -111,7 +109,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             for(Iterator<String> iter = jsonObject.keys(); iter.hasNext();) {
                 Hue hue = new Hue();
                 hue.id = iter.next();
+                hue.name = jsonObject.getJSONObject(hue.id).getString("name");
                 hue.on = jsonObject.getJSONObject(hue.id).getJSONObject("state").getBoolean("on");
+                hue.brightness = jsonObject.getJSONObject(hue.id).getJSONObject("state").getInt("bri");
 
                 hueArrayList.add(hue);
             }

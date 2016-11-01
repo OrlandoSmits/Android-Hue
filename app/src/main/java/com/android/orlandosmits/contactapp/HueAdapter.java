@@ -59,7 +59,7 @@ public class HueAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.listview_row, null);
 
             viewHolder = new ViewHolder();
-            viewHolder.id = (TextView) convertView.findViewById(R.id.hueId);
+            viewHolder.name = (TextView) convertView.findViewById(R.id.hueName);
             viewHolder.state = (TextView) convertView.findViewById(R.id.hueState);
 
             convertView.setTag(viewHolder);
@@ -69,16 +69,15 @@ public class HueAdapter extends BaseAdapter {
 
         Hue hue = (Hue) hueArrayList.get(position);
 
-        viewHolder.id.setText(hue.id);
+        viewHolder.name.setText(hue.name);
         viewHolder.state.setText(String.valueOf(hue.on));
-//        viewHolder.tState.setChecked(hue.on);
 
         return convertView;
 
     }
 
     private static class ViewHolder {
-        public TextView id;
+        public TextView name;
         public TextView state;
         public ToggleButton tState;
 

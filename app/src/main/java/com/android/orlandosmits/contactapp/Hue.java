@@ -16,15 +16,5 @@ public class Hue implements Serializable {
     public String effect;
     public String name;
 
-//    private VolleyHandler vh;
-//
-//    public void turnOn(String url) {
-//        vh.doRequest(url, "{\"on\":true}", Request.Method.PUT);
-//        on = true;
-//    }
-//
-//    public void turnOff(String url) {
-//        vh.doRequest(url, "{\"on\":false}", Request.Method.PUT);
-//        on = false;
-//    }
+
 }
