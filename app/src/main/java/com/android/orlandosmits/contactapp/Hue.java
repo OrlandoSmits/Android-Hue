@@ -27,23 +27,23 @@ public class Hue implements Serializable {
 
     public String effect;
 
-    
+
     private VolleyHandler volleyHandler;
 
-    public Hue(Context context, String id, String name, boolean on, int brightness, int hue, int saturation,
-                    String effect) {
-
-        volleyHandler = new VolleyHandler(context);
-
-        this.id = id;
-        this.name = name;
-        this.on = on;
-        this.brightness = brightness;
-        this.hue = hue;
-        this.saturation = saturation;
-        this.effect = effect;
-
-    }
+//    public Hue(Context context, String id, String name, boolean on, int brightness, int hue, int saturation,
+//                    String effect) {
+//
+//        volleyHandler = new VolleyHandler(context);
+//
+//        this.id = id;
+//        this.name = name;
+//        this.on = on;
+//        this.brightness = brightness;
+//        this.hue = hue;
+//        this.saturation = saturation;
+//        this.effect = effect;
+//
+//    }
 
     // Returns the id of an individual Hue
     public String getId() {
