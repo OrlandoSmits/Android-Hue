@@ -25,16 +25,13 @@ public class HueAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
     ArrayList hueArrayList;
-    VolleyHandler volleyHandler;
-    String url = "http://192.168.1.179/api/";
-    String username = "80b8a9620291a47fec92fa34484f5b";
-    String putUrl = url + username + "/lights/";
+    Hue hue;
+
 
     public HueAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Hue> hueArrayList){
         this.context = context;
         this.inflater = layoutInflater;
         this.hueArrayList = hueArrayList;
-        volleyHandler = new VolleyHandler(context);
     }
 
     @Override
@@ -65,30 +62,16 @@ public class HueAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.id = (TextView) convertView.findViewById(R.id.hueId);
             viewHolder.name = (TextView) convertView.findViewById(R.id.hueName);
-            viewHolder.hueSwitch = (Switch) convertView.findViewById(R.id.hueSwitch);
 
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        final Hue hue = (Hue) hueArrayList.get(position);
+        Hue hue = (Hue) hueArrayList.get(position);
 
         viewHolder.name.setText(hue.name);
-        viewHolder.id.setText(hue.id);
-        viewHolder.hueSwitch.setChecked(hue.on);
-
-        viewHolder.hueSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    volleyHandler.turnOn(putUrl + hue.id + "/state/");
-                } else {
-                    volleyHandler.turnOff(putUrl + hue.id + "/state/");
-                }
-            }
-        });
-
+        viewHolder.id.setText(String.valueOf(hue.on));
         return convertView;
 
     }

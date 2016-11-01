@@ -27,14 +27,6 @@
             android:layout_below="@+id/hueName"
             android:textSize="18sp"/>
 
-        <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="11dp"
-            android:id="@+id/hueSwitch" />
-
-
     </RelativeLayout>
 
 </RelativeLayout>
