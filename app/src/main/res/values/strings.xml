@@ -3,4 +3,5 @@
     <string name="brightnessLabel">Brightness</string>
     <string name="saturationLabel">Saturation</string>
     <string name="hueLabel">Hue</string>
+    <string name="title_activity_bridge">BridgeActivity</string>
 </resources>

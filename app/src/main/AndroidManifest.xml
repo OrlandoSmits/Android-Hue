@@ -17,7 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.orlandosmits.hue.DetailActivity"></activity>
+        <activity android:name="com.android.orlandosmits.hue.DetailActivity" />
+        <activity
+            android:name="com.android.orlandosmits.hue.BridgeActivity"
+            android:label="@string/title_activity_bridge"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

@@ -37,8 +37,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //    String username = "iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB";
 
     // Basic string elements
-    String url = "http://192.168.1.179/api/";
-    String username = "80b8a9620291a47fec92fa34484f5b";
+//    String url = "http://192.168.1.179/api/";
+//    String username = "80b8a9620291a47fec92fa34484f5b";
+
+
+    String url = "http://192.168.1.114/api/";
+    String username = "newdeveloper";
     String putUrl = url + username + "/lights/";
 
     @Override
