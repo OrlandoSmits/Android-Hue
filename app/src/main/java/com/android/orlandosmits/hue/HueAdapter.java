@@ -6,10 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Switch;
 import android.widget.TextView;
-
-import com.android.orlandosmits.contactapp.R;
 
 import java.util.ArrayList;
 
@@ -22,7 +19,6 @@ public class HueAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
     ArrayList hueArrayList;
-    Hue hue;
 
 
     public HueAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Hue> hueArrayList){
@@ -76,8 +72,5 @@ public class HueAdapter extends BaseAdapter {
     private static class ViewHolder {
         public TextView id;
         public TextView name;
-
-        public Switch hueSwitch;
-
     }
 }
