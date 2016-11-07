@@ -7,7 +7,6 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.android.orlandosmits.contactapp.R;
 import com.github.tbouron.shakedetector.library.ShakeDetector;
 
 
