@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.android.orlandosmits.handler.VolleyHandler;
+
 /**
  * Created by Orlando Smits on 29-10-2016.
  */

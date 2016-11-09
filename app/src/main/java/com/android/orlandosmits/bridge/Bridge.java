@@ -1,4 +1,4 @@
-package com.android.orlandosmits.hue;
+package com.android.orlandosmits.bridge;
 
 import java.io.Serializable;
 

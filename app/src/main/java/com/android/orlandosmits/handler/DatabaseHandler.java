@@ -1,10 +1,13 @@
-package com.android.orlandosmits.hue;
+package com.android.orlandosmits.handler;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.android.orlandosmits.bridge.Bridge;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
+import java.util.ArrayList;
 
 /**
  * @Author Orlando Smits
@@ -27,7 +30,7 @@ public class DatabaseHandler extends SQLiteAssetHelper {
 
     // Getters for the Database
     // Get the bridges from the Database
-    public Cursor getBridges(){
+    public ArrayList<Bridge> getBridges(ArrayList<Bridge> ar){
 
         // Database Query
         String query = "SELECT * FROM Bridge;";
@@ -36,9 +39,17 @@ public class DatabaseHandler extends SQLiteAssetHelper {
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
 
+        while(c.moveToNext()){
+            Bridge bridge = new Bridge();
+            bridge.name = c.getString(c.getColumnIndex("name"));
+            bridge.ipadress = c.getString(c.getColumnIndex("ipadress"));
+            bridge.username = c.getString(c.getColumnIndex("username"));
+
+            ar.add(bridge);
+        }
         // Close Database
         db.close();
 
-        return c;
+        return ar ;
     }
 }

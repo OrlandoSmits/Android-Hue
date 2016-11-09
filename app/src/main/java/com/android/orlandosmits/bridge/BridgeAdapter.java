@@ -1,4 +1,4 @@
-package com.android.orlandosmits.hue;
+package com.android.orlandosmits.bridge;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.android.orlandosmits.handler.DatabaseHandler;
+import com.android.orlandosmits.hue.R;
 
 import java.util.ArrayList;
 
@@ -17,7 +20,8 @@ public class BridgeAdapter extends BaseAdapter {
 
     Context context;
     LayoutInflater inflater;
-    ArrayList bridgeArrayList;
+    ArrayList<Bridge> bridgeArrayList;
+    DatabaseHandler dbHandler;
 
     public BridgeAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Bridge> bridgeArrayList){
         this.context = context;
@@ -59,7 +63,10 @@ public class BridgeAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Bridge bridge = (Bridge) bridgeArrayList.get(position);
+        dbHandler = new DatabaseHandler(context);
+        dbHandler.getBridges(bridgeArrayList);
+
+        Bridge bridge = bridgeArrayList.get(position);
 
         viewHolder.name.setText(bridge.getName());
         viewHolder.ipadress.setText(bridge.getIpadress());

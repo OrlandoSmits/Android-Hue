@@ -1,4 +1,4 @@
-package com.android.orlandosmits.hue;
+package com.android.orlandosmits.detail;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.android.orlandosmits.handler.VolleyHandler;
+import com.android.orlandosmits.hue.Hue;
+import com.android.orlandosmits.hue.R;
 import com.github.tbouron.shakedetector.library.ShakeDetector;
 
 

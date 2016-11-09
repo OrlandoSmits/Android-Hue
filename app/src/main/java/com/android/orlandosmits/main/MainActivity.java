@@ -1,4 +1,4 @@
-package com.android.orlandosmits.hue;
+package com.android.orlandosmits.main;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 
+import com.android.orlandosmits.detail.DetailActivity;
+import com.android.orlandosmits.hue.Hue;
+import com.android.orlandosmits.hue.HueAdapter;
+import com.android.orlandosmits.hue.R;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
